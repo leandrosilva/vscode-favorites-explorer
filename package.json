@@ -1,0 +1,84 @@
+{
+  "name": "favorites-explorer",
+  "displayName": "Favorites Explorer",
+  "description": "A 'Favorites' section in the Explorer with shortcuts to files and folders.",
+  "version": "0.0.1",
+  "publisher": "leandro",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:favoritesExplorer"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "favoritesExplorer",
+          "name": "Favorites"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "favoritesExplorer.add",
+        "title": "Add to Favorites"
+      },
+      {
+        "command": "favoritesExplorer.remove",
+        "title": "Remove from Favorites",
+        "icon": "$(close)"
+      },
+      {
+        "command": "favoritesExplorer.reveal",
+        "title": "Reveal in Explorer",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "favoritesExplorer.clear",
+        "title": "Remove All Favorites"
+      },
+      {
+        "command": "favoritesExplorer.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "favoritesExplorer.add",
+          "group": "navigation@99"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "favoritesExplorer.clear",
+          "when": "view == favoritesExplorer",
+          "group": "overflow"
+        },
+        {
+          "command": "favoritesExplorer.refresh",
+          "when": "view == favoritesExplorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "favoritesExplorer.reveal",
+          "when": "view == favoritesExplorer",
+          "group": "inline@1"
+        },
+        {
+          "command": "favoritesExplorer.remove",
+          "when": "view == favoritesExplorer",
+          "group": "inline@2"
+        }
+      ]
+    }
+  }
+}
