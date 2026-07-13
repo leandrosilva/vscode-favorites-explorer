@@ -24,11 +24,14 @@ with shortcuts (links) to files and folders.
 
 Copy or symlink this folder into `~/.vscode/extensions/` and restart VSCode:
 
+Run this from the repository root — VSCode expects the extensions folder to be
+named `<publisher>.<name>` (from `package.json`), i.e. `leandro.favorites-explorer`:
+
 ```bash
-ln -s "$PWD" ~/.vscode/extensions/favorites-explorer
+ln -s "$PWD" ~/.vscode/extensions/leandro.favorites-explorer
 ```
 
-(or `cp -R "$PWD" ~/.vscode/extensions/favorites-explorer`)
+(or `cp -R "$PWD" ~/.vscode/extensions/leandro.favorites-explorer`)
 
 To uninstall: remove that folder/symlink and restart VSCode.
 
