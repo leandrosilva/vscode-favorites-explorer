@@ -20,20 +20,34 @@ with shortcuts (links) to files and folders.
 2. `F5` → launches an "Extension Development Host" window with the extension active.
 3. In that window, open any project and use the context menu.
 
-## Install for good (just for you)
+## Install
 
-Copy or symlink this folder into `~/.vscode/extensions/` and restart VSCode:
+Build the `.vsix` package, then install it through your editor's UI. This works
+the same in **VSCode** and **Devin** (or any VSCode-based editor).
 
-Run this from the repository root — VSCode expects the extensions folder to be
-named `<publisher>.<name>` (from `package.json`), i.e. `leandro.favorites-explorer`:
+1. Build the package (needs Node; uses `@vscode/vsce` via `npx`):
 
-```bash
-ln -s "$PWD" ~/.vscode/extensions/leandro.favorites-explorer
-```
+   ```bash
+   ./package.sh
+   ```
 
-(or `cp -R "$PWD" ~/.vscode/extensions/leandro.favorites-explorer`)
+   This produces `favorites-explorer-<version>.vsix` in the repo root.
 
-To uninstall: remove that folder/symlink and restart VSCode.
+2. In your editor, install from that file:
+   - Open the **Extensions** view (`Cmd+Shift+X`)
+   - Click the **`...`** menu → **"Install from VSIX..."**
+   - Pick the generated `.vsix`
+
+   (Or via the Command Palette: **"Extensions: Install from VSIX..."**.)
+
+3. Reload the window when prompted. The **Favorites** section shows up at the
+   bottom of the Explorer.
+
+To update after code changes: bump `version` in `package.json`, run
+`./package.sh` again, and install the new `.vsix` the same way.
+
+> Note: dropping a symlink into `~/.vscode/extensions/` does **not** work — the
+> editor's scanner ignores symlinked extension folders. Install from the `.vsix`.
 
 ## Switch to global favorites
 
