@@ -1,15 +1,16 @@
 {
   "name": "favorites-explorer",
-  "displayName": "Favorites Explorer",
+  "displayName": "CØdeZØne Favorites",
   "description": "A 'Favorites' section in the Explorer with shortcuts to files and folders.",
   "version": "0.0.1",
-  "publisher": "leandro",
+  "publisher": "leandrosilva",
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
     "Other"
   ],
+  "icon": "images/icon.png",
   "license": "MIT",
   "activationEvents": [
     "onView:favoritesExplorer"

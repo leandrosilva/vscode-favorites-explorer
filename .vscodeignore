@@ -5,3 +5,5 @@
 package.sh
 *.vsix
 .DS_Store
+images/*.svg
+images/publisher.png
